@@ -1,0 +1,32 @@
+import java.util.Scanner;
+import java.util.ArrayList;
+
+public class Query {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        int N = scan.nextInt();
+        int Q = scan.nextInt();
+        int lastAns = 0;
+        
+
+        ArrayList<ArrayList<Integer>> lists = new ArrayList<ArrayList<Integer>>();
+        for (int i = 0; i < N; i++) {
+            lists.add(new ArrayList<Integer>());
+        }
+        
+        for (int i = 0; i < Q; i++) {
+            int q = scan.nextInt();
+            int x = scan.nextInt();
+            int y = scan.nextInt();
+            ArrayList<Integer> seq = lists.get((x ^ lastAns) % N);
+            if (q == 1) {
+                seq.add(y);
+            } else if (q == 2) {
+                lastAns = seq.get(y % seq.size());
+                System.out.println(lastAns);
+            }
+        }
+        
+        scan.close();
+    }
+}

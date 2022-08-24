@@ -35,8 +35,8 @@ class LongHomework{
                     System.out.println(-1);
                 }
             }
-        } catch (NumberFormatException e) {
-            e.printStackTrace();
+        } catch (IOException e) {
+            return;
         }
 
 
